@@ -348,6 +348,7 @@ After editing the demo.sh, we go back to the cloud shell and execute the followi
 ```bash
 printf 'y\n' | nohup ./demo.sh &> ~/demo.log &
 ```
+
 Now you have shut down TPU and VM. Your VM is not deleted. You can start your VM in the future to see your script and Python log in your root directory.
 
 ### Start VM and TPU the next time
@@ -359,6 +360,7 @@ TPU:
 ```bash
 ctpu up --zone=us-central1-b --tf-version=nightly --name=transformer-tutorial --tpu-size=v3-128  --project=cloud-tpu-colab-integration --tpu-only
 ```
+
 VM:
 
 ```bash
@@ -374,6 +376,7 @@ gcloud auth login
 INSTANCE=transformer-tutorial
 gcloud compute ssh --project=cloud-tpu-colab-integration --zone=us-central1-b $INSTANCE
 ```
+
 Now you are in your root directory again!
 
 ## Other Tips
@@ -384,9 +387,3 @@ You can develop your code on the remote server directly if you are comfortable w
 You can develop locally on your favorite editor, push to your branch on Github, and pull on the remote server to run.
 
 Besides `gcloud compute scp`, another tool you can check out is [rsync](https://linuxize.com/post/how-to-use-rsync-for-local-and-remote-data-transfer-and-synchronization/) which can synchronize files and folders between your local machine and the remote server.
-
-## REMINDER: Make sure you stop your instances!
-
-Don't forget to stop your instance when you are done (by clicking on the stop button at the top of the page showing your instances, or by the [other methods](#automatic-shutdown) listed above). You can restart your instance and the downloaded software will still be available.
-
-You will be charged per hour when your instance is running. This includes code development time. We encourage you to read up on Google Cloud and regularly keep track of your credits.
